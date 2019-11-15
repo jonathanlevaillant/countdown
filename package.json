@@ -1,0 +1,48 @@
+{
+  "name": "countdown",
+  "version": "0.1.0",
+  "author": "Jonathan Levaillant <jonathan.levaillant@outlook.com> (http://jonathanlevaillant.fr)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonathanlevaillant/countdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonathanlevaillant/countdown/issues",
+    "email": "jonathan.levaillant@outlook.com"
+  },
+  "keywords": [
+    "countdown",
+    "timeout",
+    "react"
+  ],
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
+}
