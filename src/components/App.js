@@ -1,5 +1,13 @@
 import React from 'react';
 
-const App = () => <div>Init</div>;
+import TodoList from './TodoList';
+import AddTodo from './AddTodo';
+
+const App = () => (
+  <>
+    <TodoList />
+    <AddTodo />
+  </>
+);
 
 export default App;
