@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { refreshTodo } from '../actions/todos';
 
@@ -12,6 +13,10 @@ const RefreshTodo = props => {
       Rafraîchir
     </button>
   );
+};
+
+RefreshTodo.propTypes = {
+  id: PropTypes.number.isRequired,
 };
 
 export default RefreshTodo;

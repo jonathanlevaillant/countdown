@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { removeTodo } from '../actions/todos';
 
@@ -12,6 +13,10 @@ const RemoveTodo = props => {
       Supprimer
     </button>
   );
+};
+
+RemoveTodo.propTypes = {
+  id: PropTypes.number.isRequired,
 };
 
 export default RemoveTodo;
