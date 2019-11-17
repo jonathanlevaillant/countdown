@@ -6,18 +6,23 @@ import { addTodo } from '../actions/todos';
 const AddTodo = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
+  const [recurrence, setRecurrence] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch(addTodo(text));
+    dispatch(addTodo(text, recurrence));
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="text">Action</label>
+      <label htmlFor="text">Tâches</label>
       <input id="text" type="text" onChange={e => setText(e.target.value)} value={text} required />
-      <button type="submit">Ajouter une action</button>
+      <br />
+      <label htmlFor="recurrence">Récurrence</label>
+      <input id="recurrence" type="number" onChange={e => setRecurrence(e.target.value)} value={recurrence} required />
+      <br />
+      <button type="submit">Ajouter une tâche</button>
     </form>
   );
 };

@@ -10,7 +10,10 @@ const TodoList = () => {
     <table border="1">
       <thead>
         <tr>
-          <th>Action</th>
+          <th>Tâches</th>
+          <th>Dernière mise à jour</th>
+          <th>Récurrence</th>
+          <th>Options</th>
         </tr>
       </thead>
       <tbody>
