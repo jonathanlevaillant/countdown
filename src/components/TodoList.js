@@ -13,6 +13,7 @@ const TodoList = () => {
           <th>Tâches</th>
           <th>Dernière mise à jour</th>
           <th>Récurrence</th>
+          <th>Compte à rebours</th>
           <th>Options</th>
         </tr>
       </thead>
