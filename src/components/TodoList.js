@@ -20,7 +20,7 @@ const TodoList = () => {
       <tbody>
         {todos.map(todo => {
           return (
-            <tr key={todo.id}>
+            <tr key={todo.id} style={{ backgroundColor: todo.hasExpired ? 'red' : 'white' }}>
               <Todo {...todo} />
             </tr>
           );
