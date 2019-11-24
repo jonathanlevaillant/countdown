@@ -1,15 +1,7 @@
 import React from 'react';
 
-import TodoList from './TodoList';
-import AddTodo from './AddTodo';
-import AlertCounter from './AlertCounter';
+import Routing from '../containers/Routing';
 
-const App = () => (
-  <>
-    <TodoList />
-    <AddTodo />
-    <AlertCounter />
-  </>
-);
+const App = () => <Routing />;
 
 export default App;
