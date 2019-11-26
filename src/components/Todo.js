@@ -1,41 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import RefreshTodo from './RefreshTodo';
 import RemoveTodo from './RemoveTodo';
-import { getDuration } from '../utils/duration';
-import { expireTodo } from '../actions/todos';
+import useCountdown from '../utils/useCountdown';
 
 const Todo = props => {
   const { id, text, lastUpdate, recurrence } = props;
-  const [countdown, setCountdown] = useState(getDuration(lastUpdate, recurrence));
-  const [countdownIsOver, setCountdownIsOver] = useState(false);
-  const dispatch = useDispatch();
-
-  // Set and refresh the countdown every seconds
-  useEffect(() => {
-    setCountdown(getDuration(lastUpdate, recurrence));
-
-    const timer = setInterval(() => setCountdown(getDuration(lastUpdate, recurrence)), 1000);
-
-    return () => clearInterval(timer);
-  }, [lastUpdate, recurrence]);
-
-  // Check if the countdown is over
-  useEffect(() => setCountdownIsOver(countdown.asSeconds() <= 0), [countdown]);
-
-  // Expire todo when the countdown is over
-  useEffect(() => {
-    if (countdownIsOver) dispatch(expireTodo(id));
-  }, [id, countdownIsOver, dispatch]);
+  const countdown = useCountdown(lastUpdate, recurrence);
 
   return (
     <>
       <td>{text}</td>
       <td>{lastUpdate.toString()}</td>
       <td>{recurrence}</td>
-      <td>{countdown.humanize(true)}</td>
+      <td>{countdown.asSeconds()}</td>
       <td>
         <RefreshTodo id={id} />
         <RemoveTodo id={id} />
