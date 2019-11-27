@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, REFRESH_TODO, SET_TODO_COUNTDOWN } from '../actions/todos';
+import { ADD_TODO, REMOVE_TODO, REFRESH_TODO, REFRESH_TODO_COUNTDOWNS } from '../actions/todos';
 
 const initialState = [];
 
@@ -19,10 +19,10 @@ const todos = (state = initialState, action) => {
       return state.filter(todo => todo.id !== action.id);
     case REFRESH_TODO:
       return state.map(todo =>
-        todo.id === action.id ? { ...todo, lastUpdate: action.lastUpdate, countdown: action.countdown } : todo,
+        todo.id === action.id ? { ...todo, lastUpdate: action.lastUpdate, countdown: todo.recurrence } : todo,
       );
-    case SET_TODO_COUNTDOWN:
-      return state.map(todo => (todo.id === action.id ? { ...todo, countdown: action.countdown } : todo));
+    case REFRESH_TODO_COUNTDOWNS:
+      return state.map(todo => ({ ...todo, countdown: todo.countdown > 0 ? todo.countdown - 1 : 0 }));
     default:
       return state;
   }

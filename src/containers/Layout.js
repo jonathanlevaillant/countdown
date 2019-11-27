@@ -1,21 +1,9 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { setTodoCountdown } from '../actions/todos';
+import useRefreshTodoCountdowns from '../hooks/useRefreshTodoCountdowns';
 
 const Layout = props => {
   const { children } = props;
-  const dispatch = useDispatch();
-  const todos = useSelector(state => state.todos);
-  const timers = [];
 
-  useEffect(() => {
-    todos.forEach(todo => {
-      timers.push(setInterval(() => dispatch(setTodoCountdown(todo.id, todo.countdown)), 1000));
-    });
-
-    return () => timers.forEach(clearInterval);
-  }, [dispatch, timers, todos]);
+  useRefreshTodoCountdowns();
 
   return children;
 };

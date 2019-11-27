@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import { refreshTodo } from '../actions/todos';
 
 const RefreshTodo = props => {
-  const { id, recurrence } = props;
+  const { id } = props;
   const dispatch = useDispatch();
 
   return (
-    <button type="button" onClick={() => dispatch(refreshTodo(id, recurrence))}>
+    <button type="button" onClick={() => dispatch(refreshTodo(id))}>
       Rafraîchir
     </button>
   );
@@ -17,7 +17,6 @@ const RefreshTodo = props => {
 
 RefreshTodo.propTypes = {
   id: PropTypes.number.isRequired,
-  recurrence: PropTypes.number.isRequired,
 };
 
 export default RefreshTodo;

@@ -14,7 +14,7 @@ const Todo = props => {
       <td>{recurrence}</td>
       <td>{countdown}</td>
       <td>
-        <RefreshTodo id={id} recurrence={recurrence} />
+        <RefreshTodo id={id} />
         <RemoveTodo id={id} />
       </td>
     </>

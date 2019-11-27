@@ -22,7 +22,7 @@ const TodoList = () => {
         <tbody>
           {todos.map(todo => {
             return (
-              <tr key={todo.id}>
+              <tr key={todo.id} style={{ backgroundColor: todo.countdown === 0 ? 'red' : null }}>
                 <Todo {...todo} />
               </tr>
             );
