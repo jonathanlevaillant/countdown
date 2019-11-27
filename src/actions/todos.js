@@ -1,7 +1,7 @@
 export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
 export const REFRESH_TODO = 'REFRESH_TODO';
-export const EXPIRE_TODO = 'EXPIRE_TODO';
+export const SET_TODO_COUNTDOWN = 'SET_TODO_COUNTDOWN';
 
 let nextTodoId = 0;
 
@@ -12,7 +12,7 @@ export const addTodo = (text, recurrence) => {
     text,
     lastUpdate: new Date(),
     recurrence: parseInt(recurrence, 10),
-    hasExpired: false,
+    countdown: parseInt(recurrence, 10),
   };
 };
 
@@ -23,19 +23,19 @@ export const removeTodo = id => {
   };
 };
 
-export const refreshTodo = id => {
+export const refreshTodo = (id, recurrence) => {
   return {
     type: REFRESH_TODO,
     id,
     lastUpdate: new Date(),
-    hasExpired: false,
+    countdown: recurrence,
   };
 };
 
-export const expireTodo = id => {
+export const setTodoCountdown = (id, countdown) => {
   return {
-    type: EXPIRE_TODO,
+    type: SET_TODO_COUNTDOWN,
     id,
-    hasExpired: true,
+    countdown: countdown - 1,
   };
 };
