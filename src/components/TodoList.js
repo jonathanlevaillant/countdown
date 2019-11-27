@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Todo from './Todo';
 
 const TodoList = () => {
-  const todos = useSelector(state => state.todos);
+  const todos = useSelector(state => state.todos).sort((a, b) => a.countdown - b.countdown);
 
   return (
     <>
